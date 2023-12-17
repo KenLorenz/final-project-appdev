@@ -1,0 +1,30 @@
+{% extends 'Index.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'model-add' %}" class="add-btn">Add Model</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Model Code</th>
+                <th>Company</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in model %}
+            
+            <tr>
+                <td>{{ x.model_code }}</td>
+                <td>{{ x.Company }}</td>
+
+                <td>
+                    <a href="model_view/{{ x.id }}">Edit</a> |
+                    <a href="model_view/{{ x.id }}/delete" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'includes/pagination.html' %}
+{% endblock %}

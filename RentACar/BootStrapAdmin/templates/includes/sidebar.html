@@ -1,0 +1,43 @@
+{% load static %}
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'index' %}">
+        <div class="sidebar-brand-text mx-3">Admin</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">
+            <span>Dashboard</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'employee-view' %}">
+            <span>Employees</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'customer-view' %}">
+            <span>Customers</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'model-view' %}">
+            <span>Models</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'vehicle-view' %}">
+            <span>Vehicles</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'rent-view' %}">
+            <span>Rents</span></a>
+    </li>
+</ul>

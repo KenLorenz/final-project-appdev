@@ -1,0 +1,35 @@
+{% extends 'Index.html' %}
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'employee-add' %}" class="add-btn">Add Employee</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Privilege</th>
+                <th>Assigned To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in employee %}
+            
+            <tr>
+                <td>{{ x.first_name }} {{ x.middle_name }} {{ x.last_name }}</td>
+                <td>{{ x.email_address }}</td>
+                <td>{{ x.phone_number }}</td>
+                <td>{{ x.privilege }}</td>
+                <td>{{ x.in_charge }}</td>
+                <td>
+                    <a href="employee_view/{{ x.id }}">Edit</a> |
+                    <a href="employee_view/{{ x.id }}/delete" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'includes/pagination.html' %}
+{% endblock %}

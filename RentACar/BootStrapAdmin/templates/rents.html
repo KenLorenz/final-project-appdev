@@ -1,0 +1,39 @@
+{% extends 'Index.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'rent-add' %}" class="add-btn">Add Rent</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Vehicle</th>
+                <th>Customer</th>
+                <th>Employee</th>
+                <th>Payment Type</th>
+                <th>Status</th>
+                <th>Date From</th>
+                <th>Date To</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in rent %}
+            
+            <tr>
+                <td>{{ x.vehicle }}</td>
+                <td>{{ x.customer }}</td>
+                <td>{{ x.employee }}</td>
+                <td>{{ x.payment_type }}</td>
+                <td>{{ x.status }}</td>
+                <td>{{ x.date_from }}</td>
+                <td>{{ x.date_to }}</td>
+                <td>
+                    <a href="rent_view/{{ x.id }}">Edit</a> |
+                    <a href="rent_view/{{ x.id }}/delete" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'includes/pagination.html' %}
+{% endblock %}
