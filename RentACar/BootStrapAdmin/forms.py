@@ -14,7 +14,7 @@ class RentForm(ModelForm):
         model = Rent
         fields = "__all__"
         
-class ModelForm(ModelForm):
+class modelForm(ModelForm):
 
     class Meta:
         model = Model
