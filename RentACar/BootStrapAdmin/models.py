@@ -72,7 +72,6 @@ class Vehicle(BaseModel): # Related to Rent Table
     model = models.ForeignKey(Model, blank=True, null=True, on_delete=models.CASCADE)
     engine_size = models.IntegerField(null=False, blank=False,default=0)
     
-    # FIX THIS LATER
     preview = models.ImageField(upload_to='images_test', null=True)
     
     def __str__(self):
@@ -99,7 +98,7 @@ class Rent(BaseModel):
     
     payment_type = models.CharField(max_length=100, null=False, choices=PAYMENT_CHOICES)
     
-    vehicle = models.ManyToManyField(Vehicle) # FIX LATER
+    vehicle = models.ManyToManyField(Vehicle)
     
     date_from = models.DateField(null=False, blank=False)
     date_to = models.DateField(null=False, blank=False)

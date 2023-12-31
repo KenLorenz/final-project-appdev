@@ -48,4 +48,12 @@ urlpatterns = [
     path('rent_view/add', RentCreate.as_view(), name='rent-add'),
     path('rent_view/<pk>', RentUpdate.as_view(), name='rent-update'),
     path('rent_view/<pk>/delete', RentDelete.as_view(), name='rent-delete'),
+    
+    #path('images_test/')
 ]
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

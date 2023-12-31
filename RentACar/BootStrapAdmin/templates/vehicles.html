@@ -3,7 +3,7 @@
 
 {% block content %}
 <a href="{% url 'vehicle-add' %}" class="add-btn">Add Vehicle</a>
-    <table>
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Model</th>
@@ -18,7 +18,7 @@
             <tr>
                 <td>{{ x.model }}</td>
                 <td>{{ x.engine_size }}</td>
-                <td>{{ x.preview }}</td>
+                <td><img src="{{ x.preview.url }}" alt="{{ x.model }}" style="width: 70px;"></td>
                 <td>
                     <a href="vehicle_view/{{ x.id }}">Edit</a> |
                     <a href="vehicle_view/{{ x.id }}/delete" >Delete</a>

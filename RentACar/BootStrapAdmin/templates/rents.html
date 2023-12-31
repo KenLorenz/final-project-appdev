@@ -3,7 +3,7 @@
 
 {% block content %}
 <a href="{% url 'rent-add' %}" class="add-btn">Add Rent</a>
-    <table>
+    <table class="table table-hover table-striped">
         <thead>
             <tr>
                 <th>Vehicle</th>
@@ -18,9 +18,12 @@
         </thead>
         <tbody>
             {% for x in rent %}
-            
             <tr>
-                <td>{{ x.vehicle }}</td>
+                <td>
+                    {% for vehicle in x.vehicle.all %}
+                        {{ vehicle }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
                 <td>{{ x.customer }}</td>
                 <td>{{ x.employee }}</td>
                 <td>{{ x.payment_type }}</td>
